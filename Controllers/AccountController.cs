@@ -21,7 +21,7 @@ namespace LinkwayAPI.Controllers
             _repositoryAccount = repositoryAccount;
         }
 
-        [Authorize(Roles = nameof(RoleTypes.HR) + AdminConstant.COMMA + nameof(RoleTypes.Manager) + AdminConstant.COMMA + nameof(RoleTypes.RMG) + AdminConstant.COMMA + nameof(RoleTypes.Admin))]
+        // [Authorize(Roles = nameof(RoleTypes.HR) + AdminConstant.COMMA + nameof(RoleTypes.Manager) + AdminConstant.COMMA + nameof(RoleTypes.RMG) + AdminConstant.COMMA + nameof(RoleTypes.Admin))]
         [HttpPost(AccountConstant.SIGNUP)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

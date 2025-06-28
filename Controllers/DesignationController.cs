@@ -32,7 +32,7 @@ namespace LinkwayAPI.Controllers
             }
         }
 
-        [Authorize(Roles = nameof(RoleTypes.Admin))]
+        // [Authorize(Roles = nameof(RoleTypes.Admin))]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
