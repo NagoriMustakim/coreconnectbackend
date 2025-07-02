@@ -2,7 +2,7 @@
 {
     public class ProgramStrings
     {
-        public const string CONNECTION_STRING = "LinkwayDBConnectionString";
+        public const string CONNECTION_STRING = "DefaultConnectionString";
         public const string JWT_VALID_AUDIENCE = "JWT:ValidAudience";
         public const string JWT_VALID_ISSUEER = "JWT:ValidIssuer";
         public const string JWT_KEY = "JWT:Key";

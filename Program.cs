@@ -1,4 +1,4 @@
-using Hangfire;
+using DotNetEnv;
 using LinkwayAPI.Configurations;
 using LinkwayAPI.Constants.Program;
 using LinkwayAPI.Data;
@@ -14,13 +14,18 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+if (builder.Environment.IsDevelopment())
+{
+    DotNetEnv.Env.Load();
+}
+var connectionString = Environment.GetEnvironmentVariable(ProgramStrings.CONNECTION_STRING);
+Console.WriteLine(connectionString);
 builder.Services.AddDbContext<LinkwayDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString(ProgramStrings.CONNECTION_STRING)), ServiceLifetime.Transient);
+    options.UseSqlServer(connectionString), ServiceLifetime.Transient);
 
 
 
