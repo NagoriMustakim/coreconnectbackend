@@ -7,7 +7,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: CoreConnectapi
-  DOTNET_VERSION: '8.0.0'
+  DOTNET_VERSION: '8.0.x'
   SOLUTION_PATH: 'LinkwayAPI.sln'
   API_PROJECT_PATH: 'CoreConnect.Api'
   PUBLISH_DIR: './publish'
