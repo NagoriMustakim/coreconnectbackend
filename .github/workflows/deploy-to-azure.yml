@@ -22,7 +22,7 @@ jobs:
     steps:
       # Check out the repo
       - name: checkout branch
-      - uses: actions/checkout@dev
+      - uses: actions/checkout@v2
 
       # Azure login
       - name: Azure login
