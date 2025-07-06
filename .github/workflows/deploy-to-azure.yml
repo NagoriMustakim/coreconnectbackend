@@ -21,7 +21,11 @@ jobs:
 
     steps:
       # Check out the repo
+      - name: checkout branch
       - uses: actions/checkout@dev
+
+      # Azure login
+      - name: Azure login
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
