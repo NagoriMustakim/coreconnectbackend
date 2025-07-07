@@ -87,9 +87,17 @@ builder.AllowAnyOrigin()
 .AllowAnyMethod());
 
 app.UseHttpsRedirection();
+// Ensure the folder exists
+string staticFilesPath = Path.Combine(Directory.GetCurrentDirectory(), ProgramStrings.RESOURCE_PATH);
+if (!Directory.Exists(staticFilesPath))
+{
+    Directory.CreateDirectory(staticFilesPath);
+}
+
+// Configure static files middleware
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), ProgramStrings.RESOURCE_PATH)),
+    FileProvider = new PhysicalFileProvider(staticFilesPath),
     RequestPath = new PathString(ProgramStrings.REQUEST_PATH)
 });
 app.UseStaticFiles();
@@ -99,3 +107,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
