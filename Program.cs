@@ -18,16 +18,8 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-if (builder.Environment.IsDevelopment())
-{
-    DotNetEnv.Env.Load();
-}
-var connectionString = Environment.GetEnvironmentVariable(ProgramStrings.CONNECTION_STRING);
-Console.WriteLine(connectionString);
 builder.Services.AddDbContext<LinkwayDbContext>(options =>
-    options.UseSqlServer(connectionString), ServiceLifetime.Transient);
-
-
+    options.UseSqlServer(builder.Configuration.GetConnectionString(ProgramStrings.CONNECTION_STRING)), ServiceLifetime.Transient);
 
 builder.Services.AddIdentity<UsrUser, IdentityRole>()
     .AddEntityFrameworkStores<LinkwayDbContext>()
