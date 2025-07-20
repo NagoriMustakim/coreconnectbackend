@@ -17,11 +17,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Configuration
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-    .AddEnvironmentVariables();
-
 builder.Services.AddDbContext<LinkwayDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString(ProgramStrings.CONNECTION_STRING)), ServiceLifetime.Transient);
 
