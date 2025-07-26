@@ -19,7 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LinkwayDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString(ProgramStrings.CONNECTION_STRING)), ServiceLifetime.Transient);
-
+Console.WriteLine("Database Connected Successfully");
 builder.Services.AddIdentity<UsrUser, IdentityRole>()
     .AddEntityFrameworkStores<LinkwayDbContext>()
     .AddDefaultTokenProviders();
